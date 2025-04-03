@@ -30,4 +30,11 @@ public class Empresa {
 		}
 	}
 	
+	public void añadirEmpleado(Empleado empleado) {
+		this.empleados.add(empleado);
+	}
+	
+	private void quitarEmpleado(Empleado empleado) {
+		this.empleados.remove(empleado);
+	}
 }
