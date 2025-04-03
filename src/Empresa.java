@@ -7,6 +7,11 @@ public class Empresa {
 	private String cuit = "31445342";
 	private List<Empleado> empleados;
 	
+	public Empresa(String nombre, String cuit) {
+		this.nombre = nombre;
+		this.cuit = cuit;
+	}
+	
 	public int retenciones() {
 		return this.empleados.stream().mapToInt(e -> e.retenciones()).sum();
 	}

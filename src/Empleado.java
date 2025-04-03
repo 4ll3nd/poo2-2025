@@ -11,6 +11,16 @@ public abstract class Empleado {
 	private int sueldoBasico;
 	private int aportes;
 	
+	public Empleado(String nombre, String direccion, boolean estadoCivil, 
+			LocalDate nacimiento, int sueldoBasico, int aportes) {
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.estadoCivil = estadoCivil;
+		this.nacimiento = nacimiento;
+		this.sueldoBasico = sueldoBasico;
+		this.aportes = aportes;
+	}
+	
 	public int calcularEdad() {
 		return this.nacimiento.until(nacimiento).getYears();
 	}

@@ -2,6 +2,11 @@ package unq.poo2.practicas.EmpresaLiquida;
 
 public class Contratado extends Empleado {
 	
+	public Contratado(int nroDeContrato, String medioDePago) {
+		this.nroDeContrato = nroDeContrato;
+		this.medioDePago = medioDePago;
+	}
+	
 	private int nroDeContrato;
 	private String medioDePago;
 	

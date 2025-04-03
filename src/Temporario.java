@@ -7,6 +7,11 @@ public class Temporario extends Empleado {
 	private int horasExtras;
 	private LocalDate finDeDesignacion;
 	
+	public Temporario(int horasExtras, LocalDate finDeDesignacion) {
+		this.horasExtras = horasExtras;
+		this.finDeDesignacion = finDeDesignacion;
+	}
+	
 	@Override
 	public int retenciones() {
 		return (this.getSueldoBasico() * 10 / 100) + this.añadidoPorAportes() + this.montoHorasExtras();

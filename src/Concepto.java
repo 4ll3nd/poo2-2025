@@ -1,4 +1,4 @@
-package unq.poo2.practicas.EmpresaLiquida;
+package /poo2-2024/src/
 
 public class Concepto {
 	private String nombre;
@@ -15,4 +15,10 @@ public class Concepto {
 	public int monto() {
 		return this.monto;
 	}
+	
+	public Concepto(String nombre, int monto) {
+		this.nombre = nombre;
+		this.monto = monto;
+	}
+	
 }

@@ -4,6 +4,11 @@ public class Permanente extends Empleado {
 	private int hijos;
 	private int antiguedad;
 	
+	public Permanente(int hijos, int antiguedad) {
+		this.hijos = hijos;
+		this.antiguedad = antiguedad;
+	}
+	
 	public int getAntiguedad() {
 		return antiguedad;
 	}
