@@ -1,4 +1,4 @@
-package unq.poo2.practicas.EmpresaLiquida;
+package ar.edu.poo2.tp2;
 
 public class Permanente extends Empleado {
 	private int hijos;

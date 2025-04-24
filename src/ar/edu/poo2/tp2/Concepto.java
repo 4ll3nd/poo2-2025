@@ -1,3 +1,4 @@
+package ar.edu.poo2.tp2;
 package /poo2-2024/src/
 
 public class Concepto {
