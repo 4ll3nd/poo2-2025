@@ -4,14 +4,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 class ServicioTest {
+	private Servicio servicio;
+	private Agencia agencia;
+	@BeforeEach
+	void setUp() throws Exception {
+		agencia = mock(Agencia.class);
+		servicio = new Servicio(300, 5, agencia);
+	}
 
 	@Test
-	void testMonto() {
-		Servicio luz = new Servicio(150.0, 2);
+	void testProcesar() {
+		servicio.procesar();
 		
-		assertEquals(300.0, luz.monto());
+		verify(servicio.getAgencia()).registrarPago(servicio);
+		assertEquals(1500, servicio.getMonto());
 	}
 
 }

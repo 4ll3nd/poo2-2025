@@ -1,50 +1,42 @@
 package ar.edu.unq.poo2.tp5;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-import org.junit.jupiter.api.BeforeAll;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
 class CajaTest {
-	Chango chango;
-	Mercado mercado;
-	Tradicional harina;
-	Cooperativo arroz;
-
+	private List<Pagable> pagables;
+	private Chango chango;
+	private Caja caja;
+	private Pagable arroz;
+	private Pagable servicio;
 	@BeforeEach
 	void setUp() throws Exception {
+		arroz = mock(Pagable.class);
+		servicio = mock(Pagable.class);
+		pagables = Arrays.asList(arroz, servicio);
 		chango = mock(Chango.class);
-		mercado = mock(Mercado.class);
-		harina = mock(Tradicional.class);
-		arroz = mock(Cooperativo.class);
+		caja = new Caja();
 	}
 
 	@Test
-	void testRegistrarProductos() {
-		Caja caja = new Caja(mercado);
-		when(harina.getPrecio()).thenReturn(300.0);
-		when(arroz.getPrecio()).thenReturn(90.0);
-		when(chango.getProductos()).thenReturn(Arrays.asList(harina, arroz));
+	void testProcesarPagables() {
+		when(chango.getPagables()).thenReturn(pagables);
+		when(arroz.procesar()).thenReturn(300.0);
+		when(servicio.procesar()).thenReturn(200.0);
+		caja.procesar(chango);
 		
-		assertEquals(390.0, caja.registrarProductos(chango));
-		verify(mercado).decrementarStock(harina);
-		verify(mercado).decrementarStock(arroz);
-	}
-	
-	@Test
-	void testRegistrarElPagoDeUnaFactura() {
-		Caja caja = new Caja(mercado);
-		Factura impuesto = new Impuesto(300);
-		Agencia agencia = mock(Agencia.class);
-		caja.setAgencia(agencia);
-		
-		caja.registrarPago(impuesto);
-		
-		verify(agencia).registrarPago(impuesto);
+		verify(arroz).procesar();	
+		verify(servicio).procesar();
+		assertEquals(500.0, caja.procesar(chango));
 	}
 }

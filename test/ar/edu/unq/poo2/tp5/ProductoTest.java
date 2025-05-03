@@ -1,19 +1,18 @@
 package ar.edu.unq.poo2.tp5;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
 
-class CooperativoTest {
-	Cooperativo arroz;
+class ProductoTest {
+	Producto arroz;
 	Inventario arrozInventario;
 	@BeforeEach
 	void setUp() throws Exception {
 		arrozInventario = mock(Inventario.class);
-		arroz = new Cooperativo("arroz", 300.0, arrozInventario); 
+		arroz = new Producto("arroz", 300.0, arrozInventario); 
 	}
 
 	@Test
@@ -21,7 +20,7 @@ class CooperativoTest {
 		arroz.procesar();
 		
 		verify(arroz.getInventario()).decrementar();
-		assertEquals(270.0, arroz.procesar());
+		assertEquals(300.0, arroz.procesar());
 	}
 
 }

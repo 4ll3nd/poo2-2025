@@ -2,35 +2,36 @@ package ar.edu.unq.poo2.tp5;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 class ChangoTest {
-	Producto arroz; 
-	Producto harina;
-	Producto arroz1;
-	Chango chango = new Chango();
+	
+	private Chango chango;
+	private Pagable unPagable;
+	
 	@BeforeEach
 	void setUp() throws Exception {
-		arroz = new Tradicional("Arroz", 500.0);
-		arroz1 = new Tradicional("Arroz", 500.0);
-		harina = new Cooperativo("Harina", 1000.0);
+		chango = new Chango();
+		unPagable = mock(Pagable.class);
 	}
 
 	@Test
-	void testAñadirProductosAlChango() {
-		chango.añadirProducto(arroz);
-		chango.añadirProducto(arroz);
+	void testAgregarUnPagableAlChango() {
+		chango.agregarPagable(unPagable);
 		
-		assertEquals(2, chango.cantDeProductos());
+		assertEquals(1, chango.getCantPagables());
 	}
 	
 	@Test
-	void testQuitarProductosAlChango() {
-		chango.añadirProducto(arroz);
-		chango.quitarProducto(arroz);
+	void testQuitarPagable() {
+		chango.agregarPagable(unPagable);
+
 		
-		assertEquals(0, chango.cantDeProductos());
+		chango.quitarPagable(unPagable);
+		
+		assertEquals(0, chango.getCantPagables());
 	}
+
 }

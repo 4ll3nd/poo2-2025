@@ -4,14 +4,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 class ImpuestoTest {
+	private Impuesto impuesto;
+	private Agencia agencia;
+	@BeforeEach
+	void setUp() throws Exception {
+		agencia = mock(Agencia.class);
+		impuesto = new Impuesto(300, agencia);
+	}
 
 	@Test
-	void testMonto() {
-		Impuesto iva = new Impuesto(300);
+	void testProcesar() {
+		impuesto.procesar();
 		
-		assertEquals(300, iva.monto());
+		verify(impuesto.getAgencia()).registrarPago(impuesto);
+		assertEquals(300, impuesto.getMonto());
 	}
 
 }
