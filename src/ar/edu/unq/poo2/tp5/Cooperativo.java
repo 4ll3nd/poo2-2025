@@ -2,12 +2,16 @@ package ar.edu.unq.poo2.tp5;
 
 public class Cooperativo extends Producto {
 
-	@Override
+	public Cooperativo(String nombre, double precio, Inventario inventario) {
+		super(nombre, precio, inventario);
+	}
+	
 	public double getPrecio() {
-		return super.getPrecio() - super.getPrecio() * 0.10;
+		return super.getPrecio() - this.descuentoPorIva();
 	}
 
-	public Cooperativo(String nombre, double precio) {
-		super(nombre, precio);
+	private double descuentoPorIva() {
+		return super.getPrecio() * 0.10;
 	}
+	
 }

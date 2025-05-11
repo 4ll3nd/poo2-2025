@@ -4,21 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Chango {
-	private List<Producto> productos = new ArrayList<Producto>();
+
+	private List<Pagable> pagables;
 	
-	public void añadirProducto(Producto producto) {
-		productos.add(producto);
+	public List<Pagable> getPagables() {
+		return pagables;
 	}
 
-	public int cantDeProductos() {
-		return this.getProductos().size();
+	public Chango() {
+		this.pagables = new ArrayList<Pagable>();
+	}
+	
+	public void agregarPagable(Pagable unPagable) {
+		this.getPagables().add(unPagable);
 	}
 
-	public List<Producto> getProductos() {
-		return productos;
+	public int getCantPagables() {
+		return this.getPagables().size();
 	}
 
-	public void quitarProducto(Producto producto) {
-		this.getProductos().remove(producto);
+	public void quitarPagable(Pagable unPagable) {
+		this.getPagables().remove(unPagable);
 	}
+	
 }
