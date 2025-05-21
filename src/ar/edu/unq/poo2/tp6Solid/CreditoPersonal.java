@@ -5,7 +5,7 @@ public class CreditoPersonal extends Solicitud {
 	public CreditoPersonal(Cliente cliente, double monto, int cuotas) {
 		super(cliente, monto, cuotas);
 	}
-
+	
 	@Override
 	public boolean esAceptable() {
 		// TODO Auto-generated method stub

@@ -34,13 +34,6 @@ class BancoTest {
 	}
 	
 	@Test
-	void testDesembolsarPrestamo() {
-		when(prestamo.getMonto()).thenReturn(3000.0);
-		
-		assertEquals(3000.0, banco.desembolsarPrestamo(prestamo));
-	}
-	
-	@Test
 	void testTotalADesembolsar() {
 		banco.agregarSolicitud(otroPrestamo);
 		banco.agregarSolicitud(prestamo);

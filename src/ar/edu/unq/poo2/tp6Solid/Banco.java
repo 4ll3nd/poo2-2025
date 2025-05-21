@@ -30,10 +30,6 @@ public class Banco {
 		this.getSolicitudes().add(prestamo);
 	}
 
-	public Double desembolsarPrestamo(Solicitud prestamo) {
-		return prestamo.getMonto();
-	}
-
 	public Double getTotalADesembolsar() {
 		return this.solicitudesAceptadas().stream().mapToDouble(s->s.getMonto()).sum();
 	}
